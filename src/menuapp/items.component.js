@@ -1,14 +1,12 @@
-(function () {
+(function() {
 'use strict';
 
-/*var items = angular.module('data',[])*/
- var items = angular.module('ItemList', [])
-.component('itemList', {
-  templateUrl: 'src/menuapp/templates/itemList.template.html',
-  bindings: {
-   onRemove: '&',
-   items: '<'
-  }
-});
+angular.module('MenuApp')
+  .component('items', {
+    templateUrl: 'src/menuapp/templates/items.template.html',
+    bindings: {
+      items: '<'
+    }
+  });
 
 })();

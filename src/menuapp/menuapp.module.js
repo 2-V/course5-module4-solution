@@ -1,6 +1,6 @@
 (function () {
-	'use strict';
+'use strict';
 
-    var MenuApp = angular.module('MenuApp', ['ui.router','data']);
+angular.module('MenuApp',['data', 'ui.router']);
 
-	})();
+})();

@@ -2,28 +2,13 @@
 'use strict';
 
 angular.module('MenuApp')
-.controller('MenuItemsController', MenuItemsController);
+.controller('ItemsController', ItemsController);
 
-var itemList = [];
-MenuItemsController.$inject = ['$stateParams', '$trace','items'];
-function MenuItemsController($stateParams, $trace, items) {	
-  var catlist = this;
-  itemList = items.data.menu_items;
-  console.log("in MenuItemsController");
-  console.log("$stateParams:  " + $stateParams);
-
-  console.log("items: " + items);
-  $trace.enable("TRANSITION");
-  catlist.items = itemList;
-  catlist.name = items.data.category.name;
-  
-  console.log(catlist.items);
-  
-  catlist.onRemove = function(itemIndex) {
-	    catlist.items.splice(itemIndex, 1);
-	}
-
+// 'item' is injected through state's resolve
+ItemsController.$inject = ['items']
+function ItemsController(items) {
+  var itemsCtrl = this;
+  itemsCtrl.items = items;
 }
-
 
 })();

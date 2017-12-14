@@ -1,47 +1,26 @@
-(function () {
+(function() {
 'use strict';
 
 angular.module('data')
-.service('MenuDataService', MenuDataService)
-.constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
+  .service('MenuDataService', MenuDataService);
 
-MenuDataService.$inject = ['$http', 'ApiBasePath']
-function MenuDataService($http, ApiBasePath) {
+MenuDataService.$inject = ['$http']
+function MenuDataService($http) {
   var service = this;
-  
-  // List of found items
-  var foundItems = [];
-  
-  service.getAllCategories = function() {
-	  var promise = $http({
-	        method: "GET",
-	        url: (ApiBasePath + "/categories.json")
 
-	      });
+  this.getAllCategories = function() {
+    return $http({
+      method: 'GET',
+      url: 'https://davids-restaurant.herokuapp.com/categories.json'
+    });
+  }
 
-	  return promise;
-  };
-
-  service.getItemsForCategory = function(categoryShortName) {
-	  console.log("getItemsForCategory(categoryshortname) :" + categoryShortName);
-	  var promise = $http({
-	        method: "GET",
-	        url: (ApiBasePath + "/menu_items.json"),
-	        params: {
-	            category: categoryShortName
-	          }
-
-	      });
-	    
-	    return promise;
-  };
-
-  service.removeItem = function (itemIndex) {
-	    foundItems.splice(itemIndex, 1);
-  };
-
-
- }
-
-
+  this.getItemsForCategory = function(categoryShortName) {
+    return $http({
+      method: 'GET',
+      url: 'https://davids-restaurant.herokuapp.com/menu_items.json',
+      params: {category: categoryShortName}
+    });
+  }
+}
 })();
