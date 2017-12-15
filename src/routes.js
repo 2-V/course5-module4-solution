@@ -31,7 +31,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
-  .state('categories.menuItems', {
+  .state('menuItems', {
     url: '/menu-items/{catId}',
     templateUrl: 'src/menuapp/templates/items.template.html',
     controller: 'MenuItemsController as catDetail',
