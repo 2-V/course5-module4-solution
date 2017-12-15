@@ -1,14 +1,17 @@
 (function () {
 'use strict';
 
-angular.module('MenuApp')
-.controller('CategoriesController', CategoriesController);
+angular.module('data')
+.controller('CategoriesListController', CategoriesListController);
 
-// 'item' is injected through state's resolve
-CategoriesController.$inject = ['categories']
-function CategoriesController(categories) {
-  var categoriesCtrl = this;
-  categoriesCtrl.categories = categories;
-}
+
+CategoriesListController.$inject = ['items'];
+function CategoriesListController(items) {
+  var list =this;
+  list.items = items.data;
+  // console.log(list.items);
+  // console.log(list.items["0"].short_name);
+
+};
 
 })();

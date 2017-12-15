@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="MenuApp">
   <head>
     <title>View Menu Items</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
   </head>
-<body ng-app="MenuApp">
+<body>
 
     <h1>View Menu Items</h1>
 
@@ -26,10 +26,12 @@
 
   <!-- MenuApp/Data module artifacts -->
   <script src="src/menuapp/menudata.service.js"></script>
-  <script src="src/menuapp/categories.component.js"></script>
-  <script src="src/menuapp/items.component.js"></script>
   <script src="src/menuapp/categories.controller.js"></script>
+  <script src="src/menuapp/categories.component.js"></script>
   <script src="src/menuapp/items.controller.js"></script>
+  <script src="src/menuapp/items.component.js"></script>
+  
+  
   
 </body>
 </html>
